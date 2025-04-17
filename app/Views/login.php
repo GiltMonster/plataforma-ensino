@@ -1,3 +1,9 @@
+<?php
+session_start();
+$erro = $_SESSION['erro_login'] ?? null;
+unset($_SESSION['erro_login']);
+?>
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 
@@ -127,11 +133,6 @@
 </head>
 
 <body>
-    <?php
-    session_start();
-    $erro = $_SESSION['erro_login'] ?? null;
-    unset($_SESSION['erro_login']);
-    ?>
 
     <div class="login-container">
         <div class="login-header">

@@ -11,7 +11,7 @@ class Aluno
 
     public function __construct()
     {
-        $this->pdo = new PDO('mysql:host=localhost;dbname=plataforma', 'root', 'rootroot');
+        $this->pdo = new PDO('mysql:host=db;dbname=plataforma', 'root', 'root');
         $this->pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     }
 
