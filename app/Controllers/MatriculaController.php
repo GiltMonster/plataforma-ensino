@@ -41,6 +41,20 @@ class MatriculaController
         header('Location: /?url=matricula/index');
     }
 
+    public function edit()
+    {
+        $matricula = $this->matricula->find($_GET['id']);
+        $alunos = $this->aluno->all();
+        $areasCursos = $this->areasCurso->all();
+
+        require_once __DIR__ . '/../Views/matriculas/edit.php';
+    }
+    public function update()
+    {
+        $this->matricula->update($_POST['id'], $_POST['aluno_id'], $_POST['curso_id']);
+        header('Location: /?url=matricula/index');
+    }
+
     public function delete()
     {
         $this->matricula->delete($_GET['id']);

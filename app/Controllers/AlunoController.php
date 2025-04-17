@@ -20,6 +20,14 @@ class AlunoController
         $alunos = $this->aluno->all();
         require_once __DIR__ . '/../Views/alunos/index.php';
     }
+    public function show()
+    {
+        $nameOurEmail = $_POST['nameOurEmail'];
+        $alunos = $this->aluno->findByEmailOrNome($nameOurEmail);
+        require_once __DIR__ . '/../Views/alunos/index.php';
+    }
+
+
 
     public function create()
     {

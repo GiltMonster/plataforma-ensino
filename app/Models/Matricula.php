@@ -32,6 +32,19 @@ class Matricula
         return $stmt->execute([$aluno_id, $curso_id]);
     }
 
+    public function find($id)
+    {
+        $stmt = $this->pdo->prepare("SELECT * FROM matriculas WHERE id = ?");
+        $stmt->execute([$id]);
+        return $stmt->fetch(PDO::FETCH_ASSOC);
+    }
+
+    public function update($id, $aluno_id, $curso_id)
+    {
+        $stmt = $this->pdo->prepare("UPDATE matriculas SET aluno_id = ?, curso_id = ?, updated_at = NOW() WHERE id = ?");
+        return $stmt->execute([$aluno_id, $curso_id, $id]);
+    }
+
     public function delete($id)
     {
         $stmt = $this->pdo->prepare("DELETE FROM matriculas WHERE id = ?");

@@ -28,16 +28,31 @@ class Aluno
         return $stmt->fetch(PDO::FETCH_ASSOC);
     }
 
+    public function findByEmailOrNome($nameOurEmail)
+    {
+        $stmt = $this->pdo->prepare("SELECT * FROM alunos WHERE email LIKE '%' ? '%' OR nome LIKE '%' ? '%' ORDER BY alunos.nome ASC");
+        $stmt->execute([$nameOurEmail, $nameOurEmail]);
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+
     public function create($data)
     {
+        $stmt = $this->pdo->prepare("SELECT * FROM alunos WHERE email = ?");
+        $stmt->execute([$data['email']]);
+        if ($stmt->rowCount() > 0) {
+            $_SESSION['erro'] = 'Email já cadastrado';
+            header('Location: /?url=aluno/create');
+            exit;
+        }
+
         $stmt = $this->pdo->prepare("INSERT INTO alunos (nome, email, data_nascimento, created_at, updated_at) VALUES (?, ?, ?, NOW(), NOW())");
-        return $stmt->execute([$data['nome'], $data['email'], $data['data_nascimento']]);
+        return $stmt->execute([$data['nome'], $data['email'], $data['data_nascimento'] ? $data['data_nascimento'] : null]);
     }
 
     public function update($id, $data)
     {
         $stmt = $this->pdo->prepare("UPDATE alunos SET nome = ?, email = ?, data_nascimento = ?, updated_at = NOW() WHERE id = ?");
-        return $stmt->execute([$data['nome'], $data['email'], $data['data_nascimento'], $id]);
+        return $stmt->execute([$data['nome'], $data['email'], $data['data_nascimento'] ? $data['data_nascimento'] : null, $id]);
     }
 
     public function delete($id)

@@ -1,3 +1,13 @@
+<?php
+$erro = $_SESSION['erro'] ?? null;
+unset($_SESSION['erro']);
+?>
+
+
+<?php if ($erro): ?>
+    <p style="color: red;"><?= $erro ?></p>
+<?php endif; ?>
+
 <h2>Novo Aluno</h2>
 <form method="POST" action="/?url=aluno/store">
     <label>Nome:</label><br>
@@ -11,3 +21,5 @@
 
     <button type="submit">Salvar</button>
 </form>
+
+<a href="/?url=aluno/index">Voltar</a>

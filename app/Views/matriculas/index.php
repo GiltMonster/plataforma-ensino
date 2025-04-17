@@ -13,6 +13,7 @@
             <td><?= $m['areasCurso'] ?></td>
             <td>
                 <a href="/?url=matricula/delete&id=<?= $m['id'] ?>" onclick="return confirm('Deseja remover essa matrícula?')">Remover</a>
+                <a href="/?url=matricula/edit&id=<?= $m['id'] ?>">Editar</a>
             </td>
         </tr>
     <?php endforeach; ?>
