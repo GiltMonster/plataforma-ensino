@@ -6,12 +6,12 @@ use App\Controllers\AlunoController;
 use App\Controllers\HomeController;
 
 // BASE_URL
-$url = $_GET['url'] ?? 'home/index'; 
+$url = $_GET['url'] ?? 'login/logout'; 
 
 $url = explode('/', $url);
 
 // pega a controller e o método da URL
-$controllerName = ucfirst($url[0] ?? 'home') . 'Controller';
+$controllerName = ucfirst($url[0] ?? 'login') . 'Controller';
 $method = $url[1] ?? 'index';
 
 // namespace

@@ -57,8 +57,8 @@ Abra [http://localhost:8080](http://localhost:8080) no navegador.
 Credenciais padrão de acesso:
 
 ```
-Email: admin@jubiplataforma.com
-Senha: 123456
+Email: admin@gmail.com
+Senha: admin
 ```
 
 ---
