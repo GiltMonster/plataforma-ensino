@@ -37,10 +37,14 @@ class LoginController
         exit;
     }
 
-    function mostrar() : void {
+    public function validarCredenciais($email, $senha)
+    {
+        return $email === 'admin@gmail.com' && $senha === 'admin';
+    }
+    
+    function mostrar(): void
+    {
 
         echo "<h1>exemplo de controller</h1>";
-        
     }
-
 }
