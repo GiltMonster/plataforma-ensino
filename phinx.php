@@ -5,7 +5,7 @@ return [
         'migrations' => 'database/migrations',
     ],
     'environments' => [
-        'default_database' => 'dev',
+        'default_environment' => 'dev',
         'dev' => [
             'adapter' => 'mysql',
             'host' => 'localhost', // Alterar para db quando for pro docker
