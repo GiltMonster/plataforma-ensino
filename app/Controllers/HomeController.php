@@ -19,5 +19,7 @@ class HomeController
         echo '<a href="/?url=aluno/index">Gerenciar Alunos</a>';
         echo '<br>';
         echo '<a href="/?url=area/index">Gerenciar Áreas</a>';
+        echo '<br>';
+        echo '<a href="/?url=matricula/index">Gerenciar Matricula</a>';
     }
 }
