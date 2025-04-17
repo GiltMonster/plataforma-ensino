@@ -34,8 +34,6 @@ Serviços disponíveis:
 - phpMyAdmin: http://localhost:8081  
   (login: `root`, senha: `root`)
 
----
-
 ### 3. Acesse o container da aplicação
 
 ```bash
@@ -51,7 +49,6 @@ vendor/bin/phinx migrate
 
 > O banco de dados `plataforma` será criado automaticamente pelo container MySQL.
 
----
 
 ### 5. Acesse a aplicação
 
@@ -129,4 +126,3 @@ composer.json
 - O projeto foi desenvolvido para fins de avaliação técnica.
 
 ---
-```
